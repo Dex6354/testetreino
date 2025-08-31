@@ -921,13 +921,16 @@
         }
 
         function showTab(tabName) {
+            // Salva o treino da aba atual antes de mudar
+            if (currentTab) {
+                saveWorkout();
+            }
+            
             document.querySelectorAll('.tab-link').forEach(tab => {
                 tab.classList.remove('active');
             });
             document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
             currentTab = tabName;
-            
-            isEditing = false;
             
             renderWorkouts(workouts[currentTab]);
             updateButtonState();
