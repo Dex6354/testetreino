@@ -176,7 +176,6 @@
 
         .details {
             display: flex;
-            /* Removido o flex-wrap para impedir a quebra de linha */
             justify-content: space-around;
             gap: 8px;
         }
@@ -185,10 +184,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Adicionado flex-grow e flex-basis para que os itens se ajustem e não quebrem a linha */
             flex-grow: 1;
-            flex-basis: 0;
-            min-width: 80px;
         }
 
         .details .input-group label {
@@ -515,8 +511,9 @@
                 gap: 4px;
             }
             .details .input-group {
+                flex-basis: 0;
+                flex-grow: 1;
                 min-width: 75px;
-                flex-basis: auto;
             }
             .details .input-field {
                 padding: 4px 6px;
@@ -539,15 +536,21 @@
                 height: 48px;
                 font-size: 1.5rem;
             }
+            
+            /* Ajuste específico para que "Séries" e "Peso" fiquem menores */
+            .details .input-group:nth-child(1),
+            .details .input-group:nth-child(3) {
+                min-width: 55px;
+            }
         }
         
         /* Ajuste para telas muito pequenas, forçando o alinhamento */
         @media (max-width: 368px) {
             .details .input-group {
-                min-width: 80px; /* Garante que os campos não fiquem muito pequenos */
+                min-width: 80px;
             }
             .details .input-field input {
-                font-size: 0.8rem; /* Reduz o tamanho da fonte para caber */
+                font-size: 0.8rem;
             }
         }
     </style>
