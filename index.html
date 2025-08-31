@@ -43,11 +43,10 @@
             padding: 16px;
             max-width: 1200px;
             margin: 0 auto;
-            /* Adicione estas linhas para o layout automático */
             display: flex;
             flex-wrap: wrap;
-            gap: 16px; /* Adiciona espaçamento entre os cards */
-            justify-content: center; /* Centraliza os cards */
+            gap: 16px;
+            justify-content: center;
         }
 
         .header {
@@ -73,7 +72,7 @@
             width: 24px;
             height: 24px;
             margin-right: 8px;
-            border-radius: 5px; /* Arredonda a imagem do cabeçalho */
+            border-radius: 5px;
         }
 
         .header .edit-btn, .header .save-btn {
@@ -118,9 +117,8 @@
             margin-bottom: 16px;
             overflow: hidden;
             position: relative;
-            /* width: 320px; Largura fixa para os cartões REMOVIDA */
-            flex: 1 1 300px; /* Adicionado para autoajuste */
-            max-width: 100%; /* Garante que não ultrapasse a largura da tela em dispositivos menores */
+            flex: 1 1 300px;
+            max-width: 100%;
         }
         .exercise-card.sortable-chosen {
             background-color: #4CAF50;
@@ -170,24 +168,26 @@
         }
 
         .exercise-card .content h3 {
-            margin: 0 50px 8px 0; /* Adiciona margem para evitar sobreposição */
+            margin: 0 50px 8px 0;
             font-size: 1rem;
             font-weight: bold;
-            word-wrap: break-word; /* Permite quebra de linha para títulos longos */
+            word-wrap: break-word;
         }
 
         .details {
             display: flex;
-            justify-content: space-between;
+            /* Removido o flex-wrap para impedir a quebra de linha */
+            justify-content: space-around;
             gap: 8px;
-            flex-wrap: wrap;
         }
 
         .details .input-group {
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex: 1;
+            /* Adicionado flex-grow e flex-basis para que os itens se ajustem e não quebrem a linha */
+            flex-grow: 1;
+            flex-basis: 0;
             min-width: 80px;
         }
 
@@ -217,7 +217,7 @@
             width: 50px;
             flex-grow: 1;
             -moz-appearance: textfield;
-            color: #ffffff; /* Cor branca para os números */
+            color: #ffffff;
         }
 
         .details .input-field input::-webkit-outer-spin-button,
@@ -231,7 +231,7 @@
         }
 
         .details .input-field input[disabled] {
-            color: #ffffff; /* Força a cor branca mesmo quando desabilitado */
+            color: #ffffff;
             cursor: not-allowed;
         }
 
@@ -513,7 +513,6 @@
             }
             .details {
                 gap: 4px;
-                justify-content: flex-start;
             }
             .details .input-group {
                 min-width: 75px;
@@ -539,6 +538,16 @@
                 width: 48px;
                 height: 48px;
                 font-size: 1.5rem;
+            }
+        }
+        
+        /* Ajuste para telas muito pequenas, forçando o alinhamento */
+        @media (max-width: 368px) {
+            .details .input-group {
+                min-width: 80px; /* Garante que os campos não fiquem muito pequenos */
+            }
+            .details .input-field input {
+                font-size: 0.8rem; /* Reduz o tamanho da fonte para caber */
             }
         }
     </style>
