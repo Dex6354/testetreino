@@ -1,3 +1,7 @@
+🚀 Easy way to know how many visitors are viewing your Github, Website, Notion. 🎉
+
+https://hits.seeyoufarm.com/
+
 # HITS
 
 ![Hits](https://storage.googleapis.com/hit-counter/main.png)
