@@ -960,6 +960,23 @@
     <!-- basta colar no HTML onde quer mostrar o contador -->
 <img src="https://hits.seeyoufarm.com/api/count/incr?url=https://seusite.example/&title=Visitas"
      alt="Contador de visitas">
+    <div>Visitas: <span id="visitas">...</span></div>
+
+<script>
+  const namespace = 'meu-site-namespace'; // escolha algo único
+  const key = 'pagina-home'; // identificador da página
+  const url = `https://api.countapi.xyz/hit/${namespace}/${key}`;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('visitas').textContent = data.value;
+    })
+    .catch(err => {
+      console.error('Erro contador:', err);
+      document.getElementById('visitas').textContent = '—';
+    });
+</script>
     
 </body>
 </html>
